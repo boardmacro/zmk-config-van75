@@ -1,49 +1,31 @@
-
 / {
     chosen {
         zephyr,display = &oled8;
-        zmk,kscan = &kscan0;
+        // Tidak ada zmk,kscan karena tidak pakai matrix keyboard
     };
 };
 
-/* Matikan I2C0 kalau tidak dipakai */
-&i2c0 {
-    status = "disabled";
-};
-
-/* Definisi pinctrl untuk I2C1 */
-&pinctrl {
-    i2c1_default: i2c1_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
-        };
-    };
-};
-
-/* Aktifkan I2C1 untuk OLED */
+/* Aktifkan I2C1 dan definisikan OLED SSD1306 */
 &i2c1 {
     compatible = "nordic,nrf-twim";
     status = "okay";
+    clock-frequency = <I2C_BITRATE_STANDARD>;
     pinctrl-0 = <&i2c1_default>;
     pinctrl-names = "default";
-    clock-frequency = <I2C_BITRATE_STANDARD>; /* 100kHz */
 
     oled8: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         label = "SSD1306";
 
-        /* Properti wajib binding SSD1306 */
         width = <128>;
-        height = <32>;              /* sesuai spesifikasi kamu */
+        height = <64>;              // Resolusi penuh
         display-offset = <0>;
-        multiplex-ratio = <31>;     /* tinggi panel - 1 */
+        multiplex-ratio = <63>;     // 64 - 1
         segment-offset = <0>;
         page-offset = <0>;
-        prechargep = <0x22>;        /* penting untuk inisialisasi */
+        prechargep = <0x22>;
 
-        /* Properti opsional umum */
         segment-remap;
         com-invdir;
         com-sequential;
