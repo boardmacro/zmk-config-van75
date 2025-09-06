@@ -1,17 +1,13 @@
 / {
     chosen {
         zephyr,display = &oled8;
-        // Tidak ada zmk,kscan karena tidak pakai matrix keyboard
     };
 };
 
-/* Aktifkan I2C1 dan definisikan OLED SSD1306 */
 &i2c1 {
     compatible = "nordic,nrf-twim";
     status = "okay";
     clock-frequency = <I2C_BITRATE_STANDARD>;
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-names = "default";
 
     oled8: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
@@ -19,9 +15,9 @@
         label = "SSD1306";
 
         width = <128>;
-        height = <64>;              // Resolusi penuh
+        height = <64>;
         display-offset = <0>;
-        multiplex-ratio = <63>;     // 64 - 1
+        multiplex-ratio = <63>;
         segment-offset = <0>;
         page-offset = <0>;
         prechargep = <0x22>;
