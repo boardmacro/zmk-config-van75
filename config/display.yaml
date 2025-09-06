@@ -1,0 +1,9 @@
+layout:
+  - logo
+  - layer
+  - wpm
+  - battery
+  - capslock
+  - connection
+  - text:
+      value: "JedYN's Board"
