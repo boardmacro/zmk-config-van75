@@ -1,20 +1,4 @@
-layout:
-  - logo:
-      name: "jedyn_logo"
-  - layer
-  - wpm:
-      style: "bar"
-      max_wpm: 130
-  - battery:
-      show_percentage: true
-      icon: true
-  - capslock:
-      icon: true
-      text: "CAPS ON"
-  - connection:
-      text: "BLE Connected"
-      disconnected_text: "Waiting..."
-  - text:
-      value: "JedYN’s Board ⚡"
-      scroll: true
-      speed: 2
+logo:
+  data: boardmacro_logo
+
+  
