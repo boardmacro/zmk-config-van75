@@ -1,4 +1,8 @@
-logo:
-  data: boardmacro_logo
+screen:
+  rows:
+    - battery_status
+    - layer_status
+    - output_status
+    - keycode_status
 
   
