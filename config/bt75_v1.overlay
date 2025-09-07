@@ -65,7 +65,14 @@ encoder3: encoder_3 {
     debounce-press-ms = <5>;
     debounce-release-ms = <5>;
 };
-&gpio1 { status = "okay"; };
+&gpio1 {
+  status = "okay";
+};
+
+&gpio0 {
+  status = "okay";
+};
+
 
 
 
