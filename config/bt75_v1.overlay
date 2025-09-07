@@ -43,7 +43,7 @@ encoder3: encoder_3 {
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder1 &encoder2 &encoder3>;
-        triggers-per-rotation = <4>;
+        triggers-per-rotation = <1>;
         status = "okay";
     };
 };
@@ -66,5 +66,6 @@ encoder3: encoder_3 {
     debounce-release-ms = <5>;
 };
 &gpio1 { status = "okay"; };
+
 
 
