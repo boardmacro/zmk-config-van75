@@ -8,8 +8,12 @@
 
     default_layer {
   bindings = < &mo 1 &kp X &kp Y >;
+  sensor-bindings = <
+    &inc_dec_kp UP DOWN       // Encoder 1: panah atas/bawah
+    &inc_dec_kp LEFT RIGHT    // Encoder 2: panah kiri/kanan
+    &inc_dec_kp PG_UP PG_DN   // Encoder 3: page up/down
+  >;
 };
-
 
     layer_1 {
   bindings = < &trans &kp UP &kp DOWN >;
