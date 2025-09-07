@@ -8,9 +8,10 @@
 
 / {
     behaviors {
-#if ZMK_BEHAVIOR_OMIT(KP)
-    /omit-if-no-ref/
-#endif
+        #if ZMK_BEHAVIOR_OMIT(KP)
+        /* /omit-if-no-ref/ */  // ← dikomentari agar tidak error
+        #endif
+
         kp: key_press {
             compatible = "zmk,behavior-key-press";
             #binding-cells = <1>;
