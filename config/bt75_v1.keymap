@@ -7,16 +7,16 @@
     compatible = "zmk,keymap";
 
     default_layer {
-  bindings = < &kp Y &kp X &kp Z &tog 1>;
+  bindings = < &kp Y &kp Z &kp X &tog 1>;
   sensor-bindings = <
-    &inc_dec_kp UP DOWN       // Encoder 1: panah atas/bawah
+    &inc_dec_kp PG_UP PG_DN        // Encoder 1: panah atas/bawah
     &inc_dec_kp LEFT RIGHT    // Encoder 2: panah kiri/kanan
-    &inc_dec_kp PG_UP PG_DN   // Encoder 3: page up/down
+    &inc_dec_kp UP DOWN   // Encoder 3: page up/down
   >;
 };
 
     layer_1 {
-  bindings = < &kp A &kp B &kp C &trans>;
+  bindings = < &kp Z &kp Y &kp X &trans>;
 };
 
   };
