@@ -7,7 +7,7 @@
     compatible = "zmk,keymap";
 
     default_layer {
-  bindings = < &tog 1 &kp X &kp Y >;
+  bindings = < &kp Y &kp X &kp Z &tog 1>;
   sensor-bindings = <
     &inc_dec_kp UP DOWN       // Encoder 1: panah atas/bawah
     &inc_dec_kp LEFT RIGHT    // Encoder 2: panah kiri/kanan
@@ -16,7 +16,7 @@
 };
 
     layer_1 {
-  bindings = < &trans &kp UP &kp DOWN >;
+  bindings = < &kp A &kp B &kp C &trans>;
 };
 
   };
