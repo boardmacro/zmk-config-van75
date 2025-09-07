@@ -1,26 +1,30 @@
-/* Definisi pin SDA/SCL untuk I2C1 */
-&pinctrl {
-    i2c1_default: i2c1_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
-        };
-    };
-
-    i2c1_sleep: i2c1_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
-        };
+/ {
+    chosen {
+        zephyr,display = &oled8;
     };
 };
 
-/* Aktifkan I2C1 dan definisikan OLED SSD1306 */
 &i2c1 {
-    compatible = "nordic,nrf-twim";
     status = "okay";
+    compatible = "nordic,nrf-twim";
     clock-frequency = <I2C_BITRATE_STANDARD>;
     pinctrl-0 = <&i2c1_default>;
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
+
+    oled8: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        label = "SSD1306";
+        width = <128>;
+        height = <64>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        prechargep = <0x22>;
+        segment-remap;
+        com-invdir;
+        com-sequential;
+    };
 };
-
-
