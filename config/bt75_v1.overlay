@@ -21,33 +21,6 @@
   a-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   b-gpios = <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   status = "okay";
-encoder1: encoder_1 {
-  compatible = "alps,ec11";
-  #sensor-binding-cells = <0>;
-  a-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  b-gpios = <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  status = "okay";
-  steps = <30>;
-};
-
-encoder2: encoder_2 {
-  compatible = "alps,ec11";
-  #sensor-binding-cells = <0>;
-  a-gpios = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  b-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  status = "okay";
-  steps = <30>;
-};
-
-encoder3: encoder_3 {
-  compatible = "alps,ec11";
-  #sensor-binding-cells = <0>;
-  a-gpios = <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  b-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  status = "okay";
-  steps = <30>;
-};
-
 };
 
 encoder2: encoder_2 {
@@ -99,7 +72,6 @@ encoder3: encoder_3 {
 &gpio0 {
   status = "okay";
 };
-
 
 
 
