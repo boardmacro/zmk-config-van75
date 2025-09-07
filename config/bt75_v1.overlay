@@ -4,9 +4,9 @@
     };
 };
 
-/* Definisi pin SDA/SCL untuk I2C1 */
+/* Definisi pin SDA/SCL untuk I2C0 */
 &pinctrl {
-    i2c1_default: i2c1_default {
+    i2c0_default: i2c0_default {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
         };
@@ -18,7 +18,7 @@
     compatible = "nordic,nrf-twim";
     status = "okay";
     clock-frequency = <I2C_BITRATE_STANDARD>;
-    pinctrl-0 = <&i2c1_default>;
+    pinctrl-0 = <&i2c0_default>;
     pinctrl-names = "default";
 
     oled8: ssd1306@3c {
