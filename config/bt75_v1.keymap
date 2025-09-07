@@ -3,21 +3,16 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-  chosen {
-    zmk,physical-layout = &layout_75_ansi;
-  };
-
   keymap {
     compatible = "zmk,keymap";
 
     default_layer {
-      bindings = < &kp LEFT &mo 1 &kp RIGHT >;
-      sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>; // Encoder 1
+      bindings = < &kp LEFT &kp DOWN &kp RIGHT >;
     };
 
     layer_1 {
       bindings = < &kp UP &kp PG_UP &kp PG_DN >;
-      sensor-bindings = <&inc_dec_kp C_SCROLL_UP C_SCROLL_DOWN>; // Encoder 2
     };
   };
 };
+
