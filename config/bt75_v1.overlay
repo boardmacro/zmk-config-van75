@@ -40,8 +40,8 @@
         segment-offset = <0>;
         page-offset = <0>;
         prechargep = <0x22>;
-
-        com-invdir;
-        com-sequential;       
+        
+        com-sequential;
+        inversion-on;
     };
 };
