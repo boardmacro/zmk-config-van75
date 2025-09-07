@@ -1,4 +1,14 @@
-Run west zephyr-export
-usage: west [-h] [-z ZEPHYR_BASE] [-v] [-V] <command> ...
-west: unknown command "zephyr-export"; workspace /tmp/zmk-config does not define this extension command -- try "west help"
-Error: Process completed with exit code 1.
+manifest:
+  defaults:
+    revision: v0.3
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    # Additional modules containing boards/shields/custom code can be listed here as well
+    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      import: app/west.yml
+  self:
+    path: config
