@@ -32,6 +32,7 @@
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         label = "SSD1306";
+        init-delay-ms = <200>;
 
         width = <128>;
         height = <64>;
