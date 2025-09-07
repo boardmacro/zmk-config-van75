@@ -14,7 +14,7 @@
 };
 
 /* Aktifkan I2C1 dan definisikan OLED SSD1306 */
-&i2c1 {
+&i2c0 {
     compatible = "nordic,nrf-twim";
     status = "okay";
     clock-frequency = <I2C_BITRATE_STANDARD>;
