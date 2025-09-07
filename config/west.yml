@@ -1,9 +1,4 @@
-manifest:
-  remotes:
-    - name: origin
-      url-base: https://github.com/boardmacro
-  projects:
-    - name: zmk-config-van75
-      path: zmk-config-van75
-      revision: master
-      remote: origin
+Run west zephyr-export
+usage: west [-h] [-z ZEPHYR_BASE] [-v] [-V] <command> ...
+west: unknown command "zephyr-export"; workspace /tmp/zmk-config does not define this extension command -- try "west help"
+Error: Process completed with exit code 1.
