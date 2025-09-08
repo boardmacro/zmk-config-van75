@@ -2,9 +2,8 @@
 
 / {
     chosen {
-        zephyr,display = &oled8;
         zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
+        zmk,matrix--transform = &default_transform;
     };
 
     default_transform: matrix_transform {
@@ -17,34 +16,38 @@
     };
 
     encoder1: encoder_1 {
-        compatible = "alps,ec11";
-        #sensor-binding-cells = <0>;
-        a-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        status = "okay";
-        steps = <30>;
-        resolution = <1>;
-    };
+  compatible = "alps,ec11";
+  #sensor-binding-cells = <0>;
+  a-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  b-gpios = <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  status = "okay";
+  steps = <30>;
+resolution = <1>;
 
-    encoder2: encoder_2 {
-        compatible = "alps,ec11";
-        #sensor-binding-cells = <0>;
-        a-gpios = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        status = "okay";
-        steps = <30>;
-        resolution = <1>;
-    };
+};
 
-    encoder3: encoder_3 {
-        compatible = "alps,ec11";
-        #sensor-binding-cells = <0>;
-        a-gpios = <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        status = "okay";
-        steps = <30>;
-        resolution = <1>;
-    };
+encoder2: encoder_2 {
+  compatible = "alps,ec11";
+  #sensor-binding-cells = <0>;
+  a-gpios = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  b-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  status = "okay";
+  steps = <30>;
+resolution = <1>;
+
+};
+
+encoder3: encoder_3 {
+  compatible = "alps,ec11";
+  #sensor-binding-cells = <0>;
+  a-gpios = <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  b-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  status = "okay";
+  steps = <30>;
+resolution = <1>;
+
+};
+
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
@@ -52,36 +55,9 @@
         triggers-per-rotation = <30>;
         status = "okay";
     };
-
-    zmk,display {
-        compatible = "zmk,display";
-        screen {
-            compatible = "zmk,screen";
-            width = <128>;
-            height = <64>;
-
-            widgets {
-                layer_status {
-                    compatible = "zmk,layer-status";
-                    x = <0>;
-                    y = <0>;
-                };
-                battery_status {
-                    compatible = "zmk,battery-status";
-                    x = <64>;
-                    y = <0>;
-                };
-                output_status {
-                    compatible = "zmk,output-status";
-                    x = <0>;
-                    y = <16>;
-                };
-            };
-        };
-    };
 };
 
-/* KSCAN */
+/* KSCAN with active-low columns and row pull-up */
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
     wakeup-source;
@@ -98,54 +74,10 @@
     debounce-press-ms = <5>;
     debounce-release-ms = <5>;
 };
-
-/* GPIO */
 &gpio1 {
-    status = "okay";
+  status = "okay";
 };
 
 &gpio0 {
-    status = "okay";
-};
-
-/* Pinctrl */
-&pinctrl {
-    i2c1_default: i2c1_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
-        };
-    };
-
-    i2c1_sleep: i2c1_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
-        };
-    };
-};
-
-/* I2C dan OLED */
-&i2c1 {
-    status = "okay";
-    clock-frequency = <I2C_BITRATE_STANDARD>;
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-1 = <&i2c1_sleep>;
-    pinctrl-names = "default", "sleep";
-
-    oled8: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-        status = "okay";
-        label = "oled8";
-        width = <128>;
-        height = <64>;
-        display-offset = <0>;
-        multiplex-ratio = <63>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        prechargep = <0x22>;
-        segment-remap;
-        com-invdir;
-        com-sequential;
-        inversion-on;
-    };
+  status = "okay";
 };
