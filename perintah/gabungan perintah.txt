@@ -1,0 +1,32 @@
+perintah backup dari GitHub ke local 
+
+======================================================================
+
+git clone https://github.com/boardmacro/zmk-config-van75.git D:\bt75
+
+
+======================================================================
+
+
+perintah dari local ke GitHub
+
+======================================================================
+
+cd /d D:\bt75
+git init
+git remote add origin https://github.com/boardmacro/zmk-config-van75.git
+git remote set-url origin https://github.com/boardmacro/zmk-config-van75.git
+git add .
+git commit -m "Menimpa isi GitHub dengan backup dari D:\\bt75"
+git push origin main --force
+
+======================================================================
+
+
+cd /d D:\bt75
+git init
+git remote add origin https://github.com/boardmacro/zmk-config-dsp_v1.git
+git remote set-url origin https://github.com/boardmacro/zmk-config-dsp_v1.git
+git add .
+git commit -m "Menimpa isi GitHub dengan backup dari D:\\bt75"
+git push origin main --force
