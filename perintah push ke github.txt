@@ -1,0 +1,53 @@
+
+
+### 🔄 Push Ulang Isi Lokal ke GitHub
+
+1. **Masuk ke folder backup lokal kamu**
+   ```bash
+   cd "C:/Users/bengk/Desktop/lokal/bt75_v1"
+   ```
+
+2. **Pastikan sudah inisialisasi Git**
+   Kalau belum:
+   ```bash
+   git init
+   ```
+
+3. **Tambahkan remote GitHub**
+   Ganti URL dengan milikmu:
+   ```bash
+   git remote add origin https://github.com/boardmacro/zmk-config-van75.git
+   ```
+
+   Kalau sudah ada remote, bisa reset:
+   ```bash
+   git remote set-url origin https://github.com/boardmacro/zmk-config-van75.git
+   ```
+
+4. **Tambahkan semua file dan commit**
+   ```bash
+   git add .
+   git commit -m "Restore from local backup"
+   ```
+
+5. **Force push ke GitHub**
+   Ini akan menimpa isi branch `master` di GitHub:
+   ```bash
+   git push origin master --force
+
+
+
+
+
+
+
+git add .github\workflows\build.yml west.yml zephyr\module.yml config\boards\shields\dsp_v1\dsp_v1.overlay
+git commit -m "Final: fix workflow (west init -l .), ensure manifest/module/overlay correct"
+git push origin main --force
+
+
+
+
+
+
+
