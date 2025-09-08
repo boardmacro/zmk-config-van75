@@ -20,7 +20,7 @@
     };
 
     layer_2 {
-      bindings = <&kp 1 &kp 2 &kp 3 &to 0>;
+      bindings = <&kp F1 &kp F2 &kp F3 &to 0>;
     };
   };
 };
