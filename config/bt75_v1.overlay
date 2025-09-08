@@ -48,7 +48,6 @@ resolution = <1>;
 
 };
 
-
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder1 &encoder2 &encoder3>;
