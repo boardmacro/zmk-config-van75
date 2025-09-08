@@ -71,7 +71,4 @@
         com-sequential;
         inversion-on;
     };
-};
-
-    };
-};
+}; 
