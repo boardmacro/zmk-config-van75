@@ -67,8 +67,9 @@
         page-offset = <0>;
         prechargep = <0x22>;
 
-        segment-remap;
+         segment-remap;
         com-invdir;
         com-sequential;
+        inversion-on;
     };
 };
