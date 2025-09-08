@@ -48,7 +48,6 @@
 
 /* Aktifkan I2C1 dan definisikan OLED SSD1306 */
 &i2c1 {
-    compatible = "nordic,nrf-twim";
     status = "okay";
     clock-frequency = <I2C_BITRATE_STANDARD>;
     pinctrl-0 = <&i2c1_default>;
@@ -58,6 +57,7 @@
     oled8: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
+        status = "okay";
         label = "oled8";
         width = <128>;
         height = <64>;
@@ -66,10 +66,12 @@
         segment-offset = <0>;
         page-offset = <0>;
         prechargep = <0x22>;
-
-         segment-remap;
+        segment-remap;
         com-invdir;
         com-sequential;
         inversion-on;
+    };
+};
+
     };
 };
