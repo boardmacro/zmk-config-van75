@@ -2,9 +2,9 @@
 
 / {
     chosen {
-        zephyr,display = &oled8;
         zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
+        zmk,matrix--transform = &default_transform;
+        zephyr,display = &oled8;
     };
 
     default_transform: matrix_transform {
@@ -52,36 +52,9 @@
         triggers-per-rotation = <30>;
         status = "okay";
     };
-
-    zmk,display {
-        compatible = "zmk,display";
-        screen {
-            compatible = "zmk,screen";
-            width = <128>;
-            height = <64>;
-
-            widgets {
-                layer_status {
-                    compatible = "zmk,layer-status";
-                    x = <0>;
-                    y = <0>;
-                };
-                battery_status {
-                    compatible = "zmk,battery-status";
-                    x = <64>;
-                    y = <0>;
-                };
-                output_status {
-                    compatible = "zmk,output-status";
-                    x = <0>;
-                    y = <16>;
-                };
-            };
-        };
-    };
 };
 
-/* KSCAN */
+/* KSCAN config */
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
     wakeup-source;
@@ -99,7 +72,7 @@
     debounce-release-ms = <5>;
 };
 
-/* GPIO */
+/* GPIO status */
 &gpio1 {
     status = "okay";
 };
@@ -108,7 +81,7 @@
     status = "okay";
 };
 
-/* Pinctrl */
+/* I2C + OLED config */
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
@@ -123,8 +96,8 @@
     };
 };
 
-/* I2C dan OLED */
 &i2c1 {
+    compatible = "nordic,nrf-twim";
     status = "okay";
     clock-frequency = <I2C_BITRATE_STANDARD>;
     pinctrl-0 = <&i2c1_default>;
@@ -134,8 +107,8 @@
     oled8: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
-        status = "okay";
-        label = "oled8";
+        label = "SSD1306";
+
         width = <128>;
         height = <64>;
         display-offset = <0>;
@@ -143,6 +116,7 @@
         segment-offset = <0>;
         page-offset = <0>;
         prechargep = <0x22>;
+
         segment-remap;
         com-invdir;
         com-sequential;
