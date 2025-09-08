@@ -2,6 +2,33 @@
     chosen {
         zephyr,display = &oled8;
     };
+
+    zmk,display {
+        compatible = "zmk,display";
+        screen {
+            compatible = "zmk,screen";
+            width = <128>;
+            height = <64>;
+
+            widgets {
+                layer_status {
+                    compatible = "zmk,layer-status";
+                    x = <0>;
+                    y = <0>;
+                };
+                battery_status {
+                    compatible = "zmk,battery-status";
+                    x = <64>;
+                    y = <0>;
+                };
+                output_status {
+                    compatible = "zmk,output-status";
+                    x = <0>;
+                    y = <16>;
+                };
+            };
+        };
+    };
 };
 
 /* Definisi pin SDA/SCL untuk I2C1 */
@@ -31,14 +58,17 @@
     oled8: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
-        label = "SSD1306";
-
+        label = "oled8";
         width = <128>;
         height = <64>;
         display-offset = <0>;
         multiplex-ratio = <63>;
         segment-offset = <0>;
         page-offset = <0>;
-        prechargep = <0x22>;        
+        prechargep = <0x22>;
+
+        segment-remap;
+        com-invdir;
+        com-sequential;
     };
 };
