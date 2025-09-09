@@ -18,8 +18,8 @@
     encoder1: encoder_1 {
   compatible = "alps,ec11";
   #sensor-binding-cells = <0>;
-  a-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  b-gpios = <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  a-gpios = <&gpio1 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  b-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   status = "okay";
   steps = <30>;
 resolution = <1>;
@@ -30,7 +30,7 @@ encoder2: encoder_2 {
   compatible = "alps,ec11";
   #sensor-binding-cells = <0>;
   a-gpios = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  b-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+  b-gpios = <&gpio1 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   status = "okay";
   steps = <30>;
 resolution = <1>;
