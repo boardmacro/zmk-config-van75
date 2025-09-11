@@ -7,7 +7,7 @@
     compatible = "zmk,keymap";
 
     default_layer {
-      bindings = <&kp N1 &kp A &kp X &bt BT_CLR &tog 2>; // Tombol khusus hapus pairing
+      bindings = <&kp N1 &kp A &kp X &bt BT_CLR &to 2>; // Tombol khusus hapus pairing
       sensor-bindings = <
         &inc_dec_kp PG_UP PG_DN
         &inc_dec_kp LEFT RIGHT
@@ -16,11 +16,11 @@
     };
 
     layer_1 {
-      bindings = <&kp N2 &kp B &kp Y &bt BT_CLR &tog 3>; // Tombol khusus hapus pairing
+      bindings = <&kp N2 &kp B &kp Y &bt BT_CLR &to 3>; // Tombol khusus hapus pairing
     };
 
     layer_2 {
-      bindings = <&kp N3 &kp C &kp Z &bt BT_CLR &tog 1>; // Tombol khusus hapus pairing
+      bindings = <&kp N3 &kp C &kp Z &bt BT_CLR &to 1>; // Tombol khusus hapus pairing
     };
   };
 
@@ -49,6 +49,7 @@
     };
   };
 };
+
 
 
 
