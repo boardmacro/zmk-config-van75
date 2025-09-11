@@ -2,48 +2,44 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-&behaviors {
-    // Behavior untuk clear bonding
+/ {
+  behaviors {
     bt_clear_bonds: behavior-bt-clear-bonds {
-        compatible = "zmk,behavior-bt-clear-bonds";
-        label = "CLR_BND";
-        #binding-cells = <0>;
+      compatible = "zmk,behavior-bt-clear-bonds";
+      label = "CLR_BND";
+      #binding-cells = <0>;
     };
 
-    // Behavior generic hold-tap (2 parameter: tap, hold)
     dual_lt_clear: behavior-hold-tap {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        label = "LT_CLR";
+      compatible = "zmk,behavior-hold-tap";
+      label = "LT_CLR";
+      #binding-cells = <2>;
     };
-};
+  };
 
-&keymap {
+  keymap {
     compatible = "zmk,keymap";
 
     default_layer {
-        bindings = <
-            &kp LEFT   &kp DOWN  &kp RIGHT
-            // Tap: toggle ke layer 1; Hold: clear bonding
-            &dual_lt_clear 1 &bt_clear_bonds
-        >;
+      bindings = <
+        &kp LEFT &kp DOWN &kp RIGHT
+        &dual_lt_clear 1 &bt_clear_bonds
+      >;
     };
 
     layer_1 {
-        bindings = <
-            &kp RIGHT  &kp UP    &kp LEFT
-            // Tap: toggle ke layer 2; Hold: clear bonding
-            &dual_lt_clear 2 &bt_clear_bonds
-        >;
+      bindings = <
+        &kp RIGHT &kp UP &kp LEFT
+        &dual_lt_clear 2 &bt_clear_bonds
+      >;
     };
 
     layer_2 {
-        bindings = <
-            &kp A      &kp B     &kp C
-            // Tap: kembali ke layer 0; Hold: clear bonding
-            &dual_lt_clear 0 &bt_clear_bonds
-        >;
+      bindings = <
+        &kp A &kp B &kp C
+        &dual_lt_clear 0 &bt_clear_bonds
+      >;
     };
+  };
 };
-
-
+``
