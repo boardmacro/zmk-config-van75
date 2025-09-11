@@ -8,10 +8,10 @@
 
     default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
-        columns = <4>;
+        columns = <5>;
         rows = <1>;
         map = <
-            RC(0,0) RC(0,1) RC(0,2) RC(0,3)
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4)
         >;
     };
 
@@ -66,6 +66,7 @@ resolution = <1>;
         <&gpio0 11 GPIO_ACTIVE_LOW>,
         <&gpio1 0  GPIO_ACTIVE_LOW>,
         <&gpio0 24 GPIO_ACTIVE_LOW>,
+        <&gpio0 20 GPIO_ACTIVE_LOW>,
         <&gpio0 22 GPIO_ACTIVE_LOW>;
     row-gpios =
         <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
@@ -80,3 +81,4 @@ resolution = <1>;
 &gpio0 {
   status = "okay";
 };
+
