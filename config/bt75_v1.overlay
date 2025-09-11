@@ -21,7 +21,7 @@
   a-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   b-gpios = <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   status = "okay";
-  steps = <30>;
+  steps = <15>;
 resolution = <1>;
 
 };
@@ -32,7 +32,7 @@ encoder2: encoder_2 {
   a-gpios = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   b-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   status = "okay";
-  steps = <30>;
+  steps = <15>;
 resolution = <1>;
 
 };
@@ -43,7 +43,7 @@ encoder3: encoder_3 {
   a-gpios = <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   b-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   status = "okay";
-  steps = <30>;
+  steps = <15>;
 resolution = <1>;
 
 };
@@ -51,7 +51,7 @@ resolution = <1>;
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder1 &encoder2 &encoder3>;
-        triggers-per-rotation = <30>;
+        triggers-per-rotation = <15>;
         status = "okay";
     };
 };
@@ -81,4 +81,5 @@ resolution = <1>;
 &gpio0 {
   status = "okay";
 };
+
 
