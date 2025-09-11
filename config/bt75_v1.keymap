@@ -16,11 +16,11 @@
     };
 
     layer_1 {
-      bindings = <&kp X &kp Y &kp Z  &trans &tog 2>;
+      bindings = <&kp X &kp Y &kp Z &bt BT_CLR &tog 2>; // Tombol khusus hapus pairing
     };
 
     layer_2 {
-      bindings = <&kp A &kp B &kp C &trans &to 0>;
+      bindings = <&kp A &kp B &kp C &bt BT_CLR &to 0>; // Tombol khusus hapus pairing
     };
   };
 
@@ -49,6 +49,3 @@
     };
   };
 };
-
-
-
