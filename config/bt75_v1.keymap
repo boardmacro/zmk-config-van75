@@ -11,7 +11,7 @@
         &kp LEFT
         &kp DOWN
         &kp RIGHT
-        &ht &bt BT_CLR_ALL &tog 1   // HOLD = clear pairing, TAP = toggle ke layer 1
+        &ht &bt BT_CLR_ALL &tg 1   // HOLD = clear pairing, TAP = toggle ke layer 1
       >;
 
       sensor-bindings = <
@@ -26,7 +26,7 @@
         &kp RIGHT
         &kp UP
         &kp LEFT
-        &tog 2                     // tetap sesuai punyamu: toggle ke layer 2
+        &tg 2                     // tetap sesuai punyamu: toggle ke layer 2
       >;
     };
 
