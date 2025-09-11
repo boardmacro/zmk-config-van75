@@ -22,24 +22,29 @@
 
     default_layer {
       bindings = <
-        &kp LEFT &kp DOWN &kp RIGHT
+        &kp LEFT
+        &kp DOWN
+        &kp RIGHT
         &dual_lt_clear 1 &bt_clear_bonds
       >;
     };
 
     layer_1 {
       bindings = <
-        &kp RIGHT &kp UP &kp LEFT
+        &kp RIGHT
+        &kp UP
+        &kp LEFT
         &dual_lt_clear 2 &bt_clear_bonds
       >;
     };
 
     layer_2 {
       bindings = <
-        &kp A &kp B &kp C
+        &kp A
+        &kp B
+        &kp C
         &dual_lt_clear 0 &bt_clear_bonds
       >;
     };
   };
 };
-``
