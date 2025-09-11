@@ -3,48 +3,24 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-  behaviors {
-    bt_clear_bonds: behavior-bt-clear-bonds {
-      compatible = "zmk,behavior-bt-clear-bonds";
-      label = "CLR_BND";
-      #binding-cells = <0>;
-    };
-
-    dual_lt_clear: behavior-hold-tap {
-      compatible = "zmk,behavior-hold-tap";
-      label = "LT_CLR";
-      #binding-cells = <2>;
-    };
-  };
-
   keymap {
     compatible = "zmk,keymap";
 
     default_layer {
-      bindings = <
-        &kp LEFT
-        &kp DOWN
-        &kp RIGHT
-        &dual_lt_clear 1 &bt_clear_bonds
-      >;
-    };
+  bindings = <&kp LEFT &kp DOWN &kp RIGHT &tog 1>;
+  sensor-bindings = <
+    &inc_dec_kp PG_UP PG_DN
+    &inc_dec_kp LEFT RIGHT
+    &inc_dec_kp UP DOWN
+  >;
+};
 
     layer_1 {
-      bindings = <
-        &kp RIGHT
-        &kp UP
-        &kp LEFT
-        &dual_lt_clear 2 &bt_clear_bonds
-      >;
+      bindings = <&kp RIGHT &kp UP &kp LEFT &tog 2>;
     };
 
     layer_2 {
-      bindings = <
-        &kp A
-        &kp B
-        &kp C
-        &dual_lt_clear 0 &bt_clear_bonds
-      >;
+      bindings = <&kp A &kp B &kp C &to 0>;
     };
   };
 };
