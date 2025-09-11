@@ -7,20 +7,36 @@
     compatible = "zmk,keymap";
 
     default_layer {
-  bindings = <&kp LEFT &kp DOWN &kp RIGHT &tog 1>;
-  sensor-bindings = <
-    &inc_dec_kp PG_UP PG_DN
-    &inc_dec_kp LEFT RIGHT
-    &inc_dec_kp UP DOWN
-  >;
-};
+      bindings = <
+        &kp LEFT
+        &kp DOWN
+        &kp RIGHT
+        &ht &bt BT_CLR_ALL &tog 1   // HOLD = clear pairing, TAP = toggle ke layer 1
+      >;
+
+      sensor-bindings = <
+        &inc_dec_kp PG_UP PG_DN
+        &inc_dec_kp LEFT RIGHT
+        &inc_dec_kp UP DOWN
+      >;
+    };
 
     layer_1 {
-      bindings = <&kp RIGHT &kp UP &kp LEFT &tog 2>;
+      bindings = <
+        &kp RIGHT
+        &kp UP
+        &kp LEFT
+        &tog 2                     // tetap sesuai punyamu: toggle ke layer 2
+      >;
     };
 
     layer_2 {
-      bindings = <&kp A &kp B &kp C &to 0>;
+      bindings = <
+        &kp A
+        &kp B
+        &kp C
+        &to 0                      // kembali ke default layer
+      >;
     };
   };
 };
