@@ -20,3 +20,4 @@
 ---
 include:
   - board: bt75_v1
+    cmake-args: -DZMK_EXTRA_MODULES=modules/zmk-rgbled-widget
