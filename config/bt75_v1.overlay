@@ -47,8 +47,7 @@ resolution = <4>;
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&encoder1 &encoder2 &encoder3>;
-        triggers-per-rotation = <120>;
+        sensors = <&encoder1 &encoder2 &encoder3>;        
         status = "okay";
     };
 };
@@ -81,6 +80,7 @@ resolution = <4>;
 &i2c0 {
     status = "disabled";
 };
+
 
 
 
