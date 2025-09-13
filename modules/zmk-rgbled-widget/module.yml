@@ -1,0 +1,6 @@
+# module.yml
+name: zmk-rgbled-widget
+type: module
+version: 0.1.0
+dependencies:
+  - zmk_core
