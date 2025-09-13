@@ -69,26 +69,7 @@ resolution = <4>;
 
     debounce-press-ms = <5>;
     debounce-release-ms = <5>;
-};
-    rgb_leds: rgb_leds {
-        compatible = "gpio-leds";
-        label = "RGB_LED";
-
-        red_led: led_0 {
-            gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
-            label = "RED";
-        };
-
-        green_led: led_1 {
-            gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
-            label = "GREEN";
-        };
-
-        blue_led: led_2 {
-            gpios = <&gpio0 16 GPIO_ACTIVE_HIGH>;
-            label = "BLUE";
-        };
-    };
+};    
 &gpio1 {
   status = "okay";
 };
@@ -99,6 +80,7 @@ resolution = <4>;
 &i2c0 {
     status = "disabled";
 };
+
 
 
 
