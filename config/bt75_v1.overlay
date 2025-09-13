@@ -20,9 +20,8 @@
   #sensor-binding-cells = <0>;
   a-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   b-gpios = <&gpio1 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  status = "okay";
-  steps = <120>;
-resolution = <2>;
+  status = "okay";  
+resolution = <4>;
 
 };
 
@@ -31,9 +30,8 @@ encoder2: encoder_2 {
   #sensor-binding-cells = <0>;
   a-gpios = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   b-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  status = "okay";
-  steps = <120>;
-resolution = <2>;
+  status = "okay"; 
+resolution = <4>;
 
 };
 
@@ -42,9 +40,8 @@ encoder3: encoder_3 {
   #sensor-binding-cells = <0>;
   a-gpios = <&gpio1 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
   b-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-  status = "okay";
-  steps = <120>;
-resolution = <2>;
+  status = "okay";  
+resolution = <4>;
 
 };
 
@@ -84,6 +81,7 @@ resolution = <2>;
 &i2c0 {
     status = "disabled";
 };
+
 
 
 
