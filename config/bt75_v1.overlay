@@ -73,26 +73,25 @@ resolution = <4>;
 };
 &i2c0 {
     status = "okay";
-    pinctrl-0 = <&pinctrl_sda &pinctrl_scl>;
+    pinctrl-0 = <&twim0_default>;
     pinctrl-names = "default";
-    sda-pin = <17>;
-    scl-pin = <20>;
     clock-frequency = <I2C_BITRATE_STANDARD>;
 
     oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb-i2c";
-        reg = <0x3c>;
-        status = "okay";
-        width = <128>;
-        height = <64>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <63>;
-        prechargep = <0x22>;
+        compatible       = "solomon,ssd1306fb-i2c";
+        reg              = <0x3c>;
+        status           = "okay";
+        width            = <128>;
+        height           = <64>;
+        segment-offset   = <0>;
+        page-offset      = <0>;
+        display-offset   = <0>;
+        multiplex-ratio  = <63>;
+        prechargep       = <0x22>;
     };
 };
 
 &gpio1 { status = "okay"; };
 &gpio0 { status = "okay"; };
+
 
