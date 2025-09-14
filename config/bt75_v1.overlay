@@ -92,6 +92,9 @@
         page-offset     = <0>;
         display-offset  = <0>;
         multiplex-ratio = <63>;
+        segment-remap;
+        com-invdir;
+        com-sequential;
         prechargep      = <0x22>;
     };
 };
@@ -104,6 +107,7 @@
 &gpio0 {
     status = "okay";
 };
+
 
 
 
