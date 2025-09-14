@@ -11,10 +11,13 @@
 
     default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
-        columns    = <5>;
-        rows       = <1>;
-        map        = <RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4)>;
+        columns = <5>;
+        rows = <1>;
+        map = <
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4)
+        >;
     };
+
 
     encoder1: encoder_1 {
         compatible            = "alps,ec11";
@@ -70,10 +73,9 @@
 
 &pinctrl {
     twim0_custom: twim0_custom {
-        nordic,pins = <
-            (NRF_PSEL(TWIM_SDA, 0, 17))
-            (NRF_PSEL(TWIM_SCL, 0, 20))
-        >;
+        nordic,pins = 
+            <(NRF_PSEL(TWIM_SDA, 0, 17))>,
+            <(NRF_PSEL(TWIM_SCL, 0, 20))>;
     };
 };
 
@@ -108,3 +110,4 @@
 &gpio0 {
     status = "okay";
 };
+
