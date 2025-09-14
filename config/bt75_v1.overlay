@@ -78,8 +78,25 @@ resolution = <4>;
   status = "okay";
 };
 &i2c0 {
-    status = "disabled";
+    compatible = "nordic,nrf-twi";
+    status = "okay";
+    sda-pin = <17>;  // p017
+    scl-pin = <20>;  // p020
+    clock-frequency = <I2C_BITRATE_STANDARD>;
 };
+
+&oled {
+    compatible = "solomon,ssd1306fb-i2c";
+    status = "okay";
+    label = "OLED";
+    width = <128>;
+    height = <64>;
+    segment-offset = <0>;
+    page-offset = <0>;
+    rotation = <0>;
+    reset-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>; // opsional, sesuaikan dengan wiring kamu
+};
+
 
 
 
