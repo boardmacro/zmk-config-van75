@@ -50,7 +50,6 @@
     };
 };
 
-/* ─── Keyscan matrix ───────────────────────────────────────────────────────── */
 &kscan0 {
     compatible           = "zmk,kscan-gpio-matrix";
     wakeup-source;
@@ -65,7 +64,6 @@
     debounce-release-ms  = <5>;
 };
 
-/* ─── Custom pinctrl untuk SDA=P0.17 & SCL=P0.20 ───────────────────────────── */
 &pinctrl {
     twim0_custom: twim0_custom {
         nordic,pins = <
@@ -75,7 +73,6 @@
     };
 };
 
-/* ─── Enable I2C0 & OLED ──────────────────────────────────────────────────── */
 &i2c0 {
     status          = "okay";
     pinctrl-0       = <&twim0_custom>;
@@ -96,7 +93,6 @@
     };
 };
 
-/* ─── Aktifkan GPIO controllers ──────────────────────────────────────────── */
 &gpio1 {
     status = "okay";
 };
@@ -104,3 +100,4 @@
 &gpio0 {
     status = "okay";
 };
+
