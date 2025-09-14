@@ -72,29 +72,31 @@ resolution = <4>;
 
 };
 &i2c1 {
-    compatible = "nordic,nrf-twi";
     status = "okay";
-    sda-pin = <17>;  // p017
-    scl-pin = <20>;  // p020
+    /* Jika board kamu sudah mendefinisikan i2c1 dan pin-nya benar,
+     * kamu bisa menghapus tiga baris di bawah ini.
+     */
+    compatible = "nordic,nrf-twim";
+    sda-pin = <17>;  /* P0.17 */
+    scl-pin = <20>;  /* P0.20 */
     clock-frequency = <I2C_BITRATE_STANDARD>;
-};
 
-oled: display@3c {
-    compatible = "solomon,ssd1306fb-i2c";
-    reg = <0x3c>; // alamat I2C
-    label = "OLED";
-    status = "okay";
-    width = <128>;
-    height = <64>;
-    segment-offset = <0>;
-    page-offset = <0>;
-    rotation = <0>;   
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb-i2c";
+        reg = <0x3c>;
+        status = "okay";
+        width = <128>;
+        height = <64>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        rotation = <0>;
     };
 };
 
 &gpio1 { status = "okay"; };
 &gpio0 { status = "okay"; };
 };
+
 
 
 
