@@ -17,30 +17,30 @@
     };
 
     encoder1: encoder_1 {
-        compatible             = "alps,ec11";
-        #sensor-binding-cells  = <0>;
-        a-gpios                = <&gpio1 6 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
-        b-gpios                = <&gpio1 4 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
-        status                 = "okay";
-        resolution             = <4>;
+        compatible            = "alps,ec11";
+        #sensor-binding-cells = <0>;
+        a-gpios               = <&gpio1 6  GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
+        b-gpios               = <&gpio1 4  GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
+        status                = "okay";
+        resolution            = <4>;
     };
 
     encoder2: encoder_2 {
-        compatible             = "alps,ec11";
-        #sensor-binding-cells  = <0>;
-        a-gpios                = <&gpio1 7 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
-        b-gpios                = <&gpio0 10 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
-        status                 = "okay";
-        resolution             = <4>;
+        compatible            = "alps,ec11";
+        #sensor-binding-cells = <0>;
+        a-gpios               = <&gpio1 7  GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
+        b-gpios               = <&gpio0 10 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
+        status                = "okay";
+        resolution            = <4>;
     };
 
     encoder3: encoder_3 {
-        compatible             = "alps,ec11";
-        #sensor-binding-cells  = <0>;
-        a-gpios                = <&gpio1 1 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
-        b-gpios                = <&gpio1 2 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
-        status                 = "okay";
-        resolution             = <4>;
+        compatible            = "alps,ec11";
+        #sensor-binding-cells = <0>;
+        a-gpios               = <&gpio1 1  GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
+        b-gpios               = <&gpio1 2  GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
+        status                = "okay";
+        resolution            = <4>;
     };
 
     sensors: sensors {
@@ -56,9 +56,9 @@
     wakeup-source;
     diode-direction      = "col2row";
     col-gpios            = <&gpio0 11 GPIO_ACTIVE_LOW>,
-                           <&gpio1 0 GPIO_ACTIVE_LOW>,
+                           <&gpio1 0  GPIO_ACTIVE_LOW>,
                            <&gpio0 24 GPIO_ACTIVE_LOW>,
-                           <&gpio0 9 GPIO_ACTIVE_LOW>,
+                           <&gpio0 9  GPIO_ACTIVE_LOW>,
                            <&gpio0 22 GPIO_ACTIVE_LOW>;
     row-gpios            = <&gpio0 15 GPIO_ACTIVE_LOW | GPIO_PULL_UP>;
     debounce-press-ms    = <5>;
@@ -69,17 +69,17 @@
 &pinctrl {
     twim0_custom: twim0_custom {
         nordic,pins = <
-            NRF_PSEL(TWIM_SDA, 0, 17)   /* P0.17 SDA */
-            NRF_PSEL(TWIM_SCL, 0, 20)   /* P0.20 SCL */
+            NRF_PSEL(TWIM_SDA, 0, 17),
+            NRF_PSEL(TWIM_SCL, 0, 20)
         >;
     };
 };
 
 /* ─── Enable I2C0 & OLED ──────────────────────────────────────────────────── */
 &i2c0 {
-    status         = "okay";
-    pinctrl-0      = <&twim0_custom>;
-    pinctrl-names  = "default";
+    status          = "okay";
+    pinctrl-0       = <&twim0_custom>;
+    pinctrl-names   = "default";
     clock-frequency = <I2C_BITRATE_STANDARD>;
 
     oled: ssd1306@3c {
