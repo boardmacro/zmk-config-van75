@@ -4,6 +4,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix-transform = &default_transform;
+        zephyr,display = &oled;
     };
 
     default_transform: matrix_transform {
@@ -52,7 +53,6 @@ resolution = <4>;
     };
 };
 
-/* KSCAN with active-low columns and row pull-up */
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
     wakeup-source;
@@ -74,12 +74,12 @@ resolution = <4>;
 &i2c0 {
     status = "okay";   
     compatible = "nordic,nrf-twim";
-    sda-pin = <17>;  /* P0.17 */
-    scl-pin = <20>;  /* P0.20 */
+    sda-pin = <17>;
+    scl-pin = <20>;
     clock-frequency = <I2C_BITRATE_STANDARD>;
 
     oled: ssd1306@3c {
-        compatible = "solomon,ssd1306-i2c";
+        compatible = "solomon,ssd1306fb-i2c";
         reg = <0x3c>;
         status = "okay";
         width = <128>;
@@ -93,6 +93,7 @@ resolution = <4>;
 &gpio1 { status = "okay"; };
 &gpio0 { status = "okay"; };
 };
+
 
 
 
