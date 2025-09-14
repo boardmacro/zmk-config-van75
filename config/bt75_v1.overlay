@@ -1,4 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <zephyr/dt-bindings/pinctrl/nrf-pinctrl.h>
 
 / {
     chosen {
@@ -71,9 +72,18 @@ resolution = <4>;
     debounce-release-ms = <5>;
 
 };
+&pinctrl {
+    twim0_custom: twim0_custom {
+        nordic,pins = <
+            NRF_PSEL(TWIM_SDA, 0, 17)   /* P0.17 SDA */
+            NRF_PSEL(TWIM_SCL, 0, 20)   /* P0.20 SCL */
+        >;
+    };
+};
+
 &i2c0 {
     status = "okay";
-    pinctrl-0 = <&twim0_default>;
+    pinctrl-0 = <&twim0_custom>;
     pinctrl-names = "default";
     clock-frequency = <I2C_BITRATE_STANDARD>;
 
@@ -93,5 +103,6 @@ resolution = <4>;
 
 &gpio1 { status = "okay"; };
 &gpio0 { status = "okay"; };
+
 
 
