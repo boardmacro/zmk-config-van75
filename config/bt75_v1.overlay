@@ -1,5 +1,5 @@
 /* config/bt75_v1.overlay */
-#include <dt-bindings/pinctrl/nrf-pinctrl.h>
+#include <dt-bindings/pinctrl/nordic-pinctrl.h>
 #include <dt-bindings/i2c/i2c.h>
 
 / {
@@ -7,7 +7,6 @@
         zephyr,display = &oled;
     };
 
-    /* Pin assignment untuk TWIM0 (I²C0) */
     i2c0_pins: twim0_default {
         nordic,pins = <
             (NRF_PSEL(TWIM_SDA, 0, 17)),
@@ -18,8 +17,8 @@
 
 &i2c0 {
     status          = "okay";
-    pinctrl-names   = "default";
     pinctrl-0       = <&i2c0_pins>;
+    pinctrl-names   = "default";
     clock-frequency = <I2C_BITRATE_STANDARD>;
 
     oled: ssd1306@3c {
@@ -27,4 +26,12 @@
         reg        = <0x3c>;
         status     = "okay";
     };
+};
+
+&gpio0 {
+    status = "okay";
+};
+
+&gpio1 {
+    status = "okay";
 };
