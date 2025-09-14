@@ -71,8 +71,8 @@
 &pinctrl {
     twim0_custom: twim0_custom {
         nordic,pins = <
-            (NRF_PSEL(TWIM_SDA, 0, 17))
-            (NRF_PSEL(TWIM_SCL, 0, 20))
+            (NRF_PSEL(TWIM_SDA, 0, 17)
+            (NRF_PSEL(TWIM_SCL, 0, 20)
         >;
     };
 };
@@ -104,3 +104,4 @@
 &gpio0 {
     status = "okay";
 };
+
