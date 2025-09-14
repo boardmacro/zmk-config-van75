@@ -82,21 +82,17 @@ resolution = <4>;
         compatible = "solomon,ssd1306fb-i2c";
         reg = <0x3c>;
         status = "okay";
-        width = <128>;
-        height = <64>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        rotation = <0>;
+
+        width           = <128>;
+        height          = <64>;
+        segment-offset  = <0>;
+        page-offset     = <0>;
+        display-offset  = <0>;
+        multiplex-ratio = <63>;
+        prechargep      = <0x22>; 
     };
 };
 
 &gpio1 { status = "okay"; };
 &gpio0 { status = "okay"; };
 };
-
-
-
-
-
-
-
