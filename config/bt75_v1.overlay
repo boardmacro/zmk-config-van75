@@ -69,14 +69,7 @@ resolution = <4>;
 
     debounce-press-ms = <5>;
     debounce-release-ms = <5>;
-};    
-&gpio1 {
-  status = "okay";
-};
 
-&gpio0 {
-  status = "okay";
-};
 &i2c0 {
     compatible = "nordic,nrf-twi";
     status = "okay";
@@ -96,18 +89,11 @@ resolution = <4>;
     rotation = <0>;
     reset-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>; // opsional, sesuaikan dengan wiring kamu
 };
+   
+&gpio1 {
+  status = "okay";
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+&gpio0 {
+  status = "okay";
+};
