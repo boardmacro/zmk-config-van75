@@ -95,4 +95,3 @@ resolution = <4>;
 
 &gpio1 { status = "okay"; };
 &gpio0 { status = "okay"; };
-};
