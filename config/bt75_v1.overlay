@@ -71,11 +71,8 @@ resolution = <4>;
     debounce-release-ms = <5>;
 
 };
-&i2c1 {
-    status = "okay";
-    /* Jika board kamu sudah mendefinisikan i2c1 dan pin-nya benar,
-     * kamu bisa menghapus tiga baris di bawah ini.
-     */
+&i2c0 {
+    status = "okay";   
     compatible = "nordic,nrf-twim";
     sda-pin = <17>;  /* P0.17 */
     scl-pin = <20>;  /* P0.20 */
@@ -96,6 +93,7 @@ resolution = <4>;
 &gpio1 { status = "okay"; };
 &gpio0 { status = "okay"; };
 };
+
 
 
 
