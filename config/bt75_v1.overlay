@@ -70,6 +70,7 @@ resolution = <4>;
     debounce-press-ms = <5>;
     debounce-release-ms = <5>;
 
+};
 &i2c0 {
     compatible = "nordic,nrf-twi";
     status = "okay";
@@ -97,3 +98,4 @@ resolution = <4>;
 &gpio0 {
   status = "okay";
 };
+
