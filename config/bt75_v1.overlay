@@ -71,29 +71,29 @@
 &pinctrl {
     twim0_custom: twim0_custom {
         nordic,pins = <
-            NRF_PSEL(TWIM_SDA, 0, 17),
-            NRF_PSEL(TWIM_SCL, 0, 20)
+            (NRF_PSEL(TWIM_SDA, 0, 17))
+            (NRF_PSEL(TWIM_SCL, 0, 20))
         >;
     };
 };
 
 &i2c0 {
-    status          = "okay";
-    pinctrl-0       = <&twim0_custom>;
-    pinctrl-names   = "default";
+    status = "okay";
+    pinctrl-0 = <&twim0_custom>;
+    pinctrl-names = "default";
     clock-frequency = <I2C_BITRATE_STANDARD>;
 
     oled: ssd1306@3c {
-        compatible      = "solomon,ssd1306fb-i2c";
-        reg             = <0x3c>;
-        status          = "okay";
-        width           = <128>;
-        height          = <64>;
-        segment-offset  = <0>;
-        page-offset     = <0>;
-        display-offset  = <0>;
-        multiplex-ratio = <63>;
-        prechargep      = <0x22>;
+        compatible       = "solomon,ssd1306fb-i2c";
+        reg              = <0x3c>;
+        status           = "okay";
+        width            = <128>;
+        height           = <64>;
+        segment-offset   = <0>;
+        page-offset      = <0>;
+        display-offset   = <0>;
+        multiplex-ratio  = <63>;
+        prechargep       = <0x22>;
     };
 };
 
@@ -104,7 +104,3 @@
 &gpio0 {
     status = "okay";
 };
-
-
-
-
