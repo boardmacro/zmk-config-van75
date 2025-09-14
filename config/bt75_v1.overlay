@@ -71,7 +71,7 @@ resolution = <4>;
     debounce-release-ms = <5>;
 
 };
-&i2c0 {
+&i2c1 {
     compatible = "nordic,nrf-twi";
     status = "okay";
     sda-pin = <17>;  // p017
@@ -89,15 +89,12 @@ oled: display@3c {
     segment-offset = <0>;
     page-offset = <0>;
     rotation = <0>;   
+    };
 };
 
-   
-&gpio1 {
-  status = "okay";
+&gpio1 { status = "okay"; };
+&gpio0 { status = "okay"; };
 };
 
-&gpio0 {
-  status = "okay";
-};
 
 
