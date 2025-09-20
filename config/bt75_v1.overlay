@@ -1,48 +1,26 @@
+/dts-v1/;
 / {
-    chosen {
-        zephyr,display = &oled8;
-    };
-};
-
-/* Definisi pin SDA/SCL untuk I2C1 */
-&pinctrl {
-    i2c0_default: i2c0_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
-        };
+    aliases {
+        i2c1 = &twim1;
     };
 
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
-        };
+    /* Aktifkan TWIM1 (I2C1) pada pin P0.26=SDA, P0.27=SCL */
+    &twim1 {
+        status = "okay";
+        sda-pin = <17>;
+        scl-pin = <20>;
+        bus-frequency = <400000>;
+        pinctrl-0 = <&twim1_default>;
+        pinctrl-names = "default";
     };
-};
 
-/* Aktifkan I2C0 dan definisikan OLED SSD1306 */
-&i2c0 {
-    compatible = "nordic,nrf-twim";
-    status = "okay";
-    clock-frequency = <I2C_BITRATE_STANDARD>;
-    pinctrl-0 = <&i2c0_default>;
-    pinctrl-1 = <&i2c0_sleep>;
-    pinctrl-names = "default", "sleep";
-
-    oled8: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
+    /* Definisi OLED SSD1306 di alamat 0x3C */
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306";
         reg = <0x3c>;
-        label = "SSD1306";
-
         width = <128>;
         height = <64>;
-        display-offset = <0>;
-        multiplex-ratio = <63>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        prechargep = <0x22>;
-
-        segment-remap;
-        com-invdir;
-        com-sequential;        
+        label = "SSD1306";
+        status = "okay";
     };
 };
