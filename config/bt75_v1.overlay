@@ -1,4 +1,3 @@
-/dts-v1/;
 / {
     aliases {
         i2c1 = &twim1;
