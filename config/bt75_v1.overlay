@@ -8,18 +8,19 @@
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
         };
     };
-
     i2c1_sleep: i2c1_sleep {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>, <NRF_PSEL(TWIM_SCL, 0, 20)>;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
         };
     };
 };
 
-/* Aktifkan I2C1 dan definisikan OLED SSD1306 */
+/* Aktifkan I2C1 dan definisikan OLED SH1106 */
 &i2c1 {
     compatible = "nordic,nrf-twim";
     status = "okay";
@@ -28,11 +29,10 @@
     pinctrl-1 = <&i2c1_sleep>;
     pinctrl-names = "default", "sleep";
 
-    oled8: ssd1306@3c {
-        compatible = "solomon,ssd1306fb-i2c";  /* <- penting! */
+    oled8: sh1106@3c {
+        compatible = "sinowealth,sh1106fb-i2c"; /* <- ganti driver */
         reg = <0x3c>;
-        label = "SSD1306";
-
+        label = "SH1106";
         width = <128>;
         height = <64>;
         segment-offset = <0>;
@@ -40,7 +40,6 @@
         display-offset = <0>;
         multiplex-ratio = <63>;
         prechargep = <0x22>;
-
         segment-remap;
         com-invdir;
         com-sequential;
