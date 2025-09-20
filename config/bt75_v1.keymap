@@ -3,14 +3,6 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-    behaviors {
-        sensor_none: behavior_sensor_none {
-            compatible = "zmk,behavior-sensor-keypress";
-            label = "SENSOR_NONE";
-            #sensor-binding-cells = <0>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -25,21 +17,6 @@
                 &inc_dec_kp PG_UP PG_DN
                 &inc_dec_kp LEFT RIGHT
                 &inc_dec_kp UP DOWN
-            >;
-        };
-
-        layer_1 {
-            bindings = <
-                &kp A
-                &kp B
-                &kp C
-                &trans
-            >;
-            // Gunakan sensor_none agar valid di devicetree
-            sensor-bindings = <
-                &sensor_none
-                &sensor_none
-                &sensor_none
             >;
         };
     };
