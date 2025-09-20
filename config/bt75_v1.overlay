@@ -29,7 +29,7 @@
     pinctrl-names = "default", "sleep";
 
     oled8: ssd1306@3c {
-        compatible = "sinowealth,sh1106fb-i2c";
+        compatible = "sinowealth,sh1106fb";
         reg = <0x3c>;
         label = "SSD1306";
 
