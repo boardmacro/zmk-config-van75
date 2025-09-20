@@ -18,8 +18,9 @@
     layer_1 {
   bindings = < &kp A &kp B &kp C &trans>;
 };
-
+};
   };
+
 
 
 
