@@ -30,7 +30,7 @@
     pinctrl-names = "default", "sleep";
 
     oled8: sh1106@3c {
-        compatible = "sinowealth,sh1106fb-i2c"; /* <- ganti driver */
+        compatible = "sinowealth,sh1106fb";
         reg = <0x3c>;
         label = "SH1106";
         width = <128>;
